@@ -1,0 +1,37 @@
+name: Auto Relist
+
+on:
+  schedule:
+    # Har 2 ghante baad automatically chalega (Din mein 12 dafa, odd minute offset taake GitHub run skip na kare)
+    - cron: '17 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  auto-relist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: |
+          npm init -y
+          npm install playwright@1.49.1
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Relist Script
+        env:
+          JFS_USER: ${{ secrets.JFS_USER }}
+          JFS_PASS: ${{ secrets.JFS_PASS }}
+          LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
+          LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
+        run: node relist.js

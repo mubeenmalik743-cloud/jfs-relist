@@ -2,7 +2,7 @@ name: Auto Relist
 
 on:
   schedule:
-    # Har 2 ghante baad automatically chalega (Din mein 12 dafa, odd minute offset taake GitHub run skip na kare)
+    # Har 1 ghante baad automatically chalega (Din mein 24 dafa, odd minute offset taake GitHub run skip na kare)
     - cron: '17 * * * *'
   workflow_dispatch:
 

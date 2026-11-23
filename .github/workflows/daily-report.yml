@@ -47,8 +47,8 @@ jobs:
             ❌ Failed Runs:     ${failedRuns.length}
             🔄 Total Runs:      ${totalRuns.length}
 
-            Target: 12 runs daily (har 2 ghante baad)
-            Status: ${successRuns.length >= 8 ? 'Mubarak ho! Aaj ke din relist runs kamyabi se complete hue.' : 'System ne pichle 24 ghante mein ' + successRuns.length + ' runs successfully relist kiye.'}
+            Target: 24 runs daily (har 1 ghante baad)
+            Status: ${successRuns.length >= 20 ? 'Mubarak ho! Aaj ke din relist runs kamyabi se complete hue.' : 'System ne pichle 24 ghante mein ' + successRuns.length + ' runs successfully relist kiye.'}
             --------------------------------------------------
             `;
 

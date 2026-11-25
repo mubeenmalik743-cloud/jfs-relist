@@ -43,12 +43,12 @@ jobs:
 
             JFS Auto Relist ki 24 Ghante ki Daily Report:
             --------------------------------------------------
-            ✅ Successful Runs: ${successRuns.length}
+            ✅ Successful Runs: ${successRuns.length} / 10
             ❌ Failed Runs:     ${failedRuns.length}
             🔄 Total Runs:      ${totalRuns.length}
 
-            Target: 24 runs daily (har 1 ghante baad)
-            Status: ${successRuns.length >= 20 ? 'Mubarak ho! Aaj ke din relist runs kamyabi se complete hue.' : 'System ne pichle 24 ghante mein ' + successRuns.length + ' runs successfully relist kiye.'}
+            Target: 10 runs daily (Custom PKT Schedule)
+            Status: ${successRuns.length >= 10 ? 'Mubarak ho! Aaj ke tamam 10 scheduled relist runs kamyabi se complete hue.' : 'System ne pichle 24 ghante mein ' + successRuns.length + ' / 10 runs successfully relist kiye.'}
             --------------------------------------------------
             `;
 
@@ -65,6 +65,6 @@ jobs:
             await transporter.sendMail({
               from: `"JFS Relist Bot" <${process.env.MAIL_USER}>`,
               to: process.env.MAIL_USER,
-              subject: `Daily JFS Relist Report: ${successRuns.length} Runs Completed ✅`,
+              subject: `Daily JFS Relist Report: ${successRuns.length}/10 Runs Completed ✅`,
               text: messageBody
             });
